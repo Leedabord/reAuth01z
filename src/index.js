@@ -8,7 +8,7 @@ import {
   IfFirebaseAuthed,
   IfFirebaseAuthedAnd
 } from "@react-firebase/auth";
-import { firebaseConfig } from "../local/config";
+import { firebaseConfig } from "./base";
 
 export const App = () => {
   return (
