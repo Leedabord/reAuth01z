@@ -8,11 +8,11 @@ import {
   IfFirebaseAuthed,
   IfFirebaseAuthedAnd
 } from "@react-firebase/auth";
-import { config } from "../config";
+import { firebaseConfig } from "../local/config";
 
 export const App = () => {
   return (
-    <FirebaseAuthProvider {...config} firebase={firebase}>
+    <FirebaseAuthProvider {...firebaseConfig} firebase={firebase}>
       <div>
         <button
           onClick={() => {
