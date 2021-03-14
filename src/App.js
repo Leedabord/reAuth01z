@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from 'react-bootstrap';
 import "./style.css";
 
 // import { render } from "react-dom";
@@ -16,29 +17,29 @@ export const App = () => {
   return (
     <FirebaseAuthProvider {...firebaseConfig} firebase={firebase}>
       <div>
-        <button
+        <Button
           onClick={() => {
             const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(googleAuthProvider);
           }}
         >
           Sign In with Google
-        </button>
-        <button
+        </Button>
+        <Button
           data-testid="signin-anon"
           onClick={() => {
             firebase.auth().signInAnonymously();
           }}
         >
           Sign In Anonymously
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => {
             firebase.auth().signOut();
           }}
         >
           Sign Out
-        </button>
+        </Button>
         <FirebaseAuthConsumer>
           {({ isSignedIn, user, providerId }) => {
             return (
