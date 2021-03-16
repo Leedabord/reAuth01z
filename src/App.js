@@ -1,4 +1,6 @@
 import React from "react";
+import { BrowserRouter, Link, Route, Switch, Redirect } from "react-router-dom";
+
 import { Button } from 'react-bootstrap';
 import "./style.css";
 
@@ -16,6 +18,7 @@ import { firebaseConfig } from "./base";
 export const App = () => {
   return (
     <FirebaseAuthProvider {...firebaseConfig} firebase={firebase}>
+
       <div>
         <Button
           onClick={() => {
@@ -64,6 +67,7 @@ export const App = () => {
           </IfFirebaseAuthedAnd>
         </div>
       </div>
+
     </FirebaseAuthProvider>
   );
 };
