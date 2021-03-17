@@ -211,8 +211,7 @@ if (xx > 0) {
     }
 }
 else {
-  losUIjson.push({
-      "CategoryTitle": "",
+  losUIjson.push({"CategoryTitle": "",
       "subCatCriteria": [{
         "subCatNotes": "",
         "subCatTitle": "",
@@ -267,8 +266,9 @@ console.log("losUIjson:: ", losUIjson);
           {({ isSignedIn, user, providerId }) => {
             return (
               <pre style={{ height: 300, overflow: "auto" }}>
-                {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}
+  <br />              {JSON.stringify({ losUIjson}, null, 2)}
               </pre>
+        //        {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}
             );
           }}
         </FirebaseAuthConsumer>
