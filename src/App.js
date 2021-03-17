@@ -16,6 +16,226 @@ import {
 import { firebaseConfig } from "./base";
 
 export const App = () => {
+
+var apiRecords = [{
+    "staffUsi": 25040,
+    "category": "FOREVER LEARNER",
+    "subCategory": "Always seeking opportunities to continuously learn and grow",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.86,
+    "score": 3,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "FOREVER LEARNER",
+    "subCategory": "Being joyful, reflective, transparent, and deliberate in applying our learning to change the world",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 3.04,
+    "score": 3,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "FOREVER LEARNER",
+    "subCategory": "Catalyzing innovation, embracing failing forward",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.6,
+    "score": 3,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "FOREVER LEARNER",
+    "subCategory": "Thoughtfully disrupting the status quo",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.64,
+    "score": 2,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "PROMISE 2 PURPOSE INVESTOR",
+    "subCategory": "Consistently displaying a sense of possibility, optimism, and hope",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 3.1,
+    "score": 3,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "PROMISE 2 PURPOSE INVESTOR",
+    "subCategory": "Distributing leadership and empowering others",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.51,
+    "score": 2,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "PROMISE 2 PURPOSE INVESTOR",
+    "subCategory": "Inspiring, coaching, encouraging, and developing others",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.49,
+    "score": 3,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "PROMISE 2 PURPOSE INVESTOR",
+    "subCategory": "Recognizing excellence and celebrating progress",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.68,
+    "score": 2,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "PROMISE 2 PURPOSE INVESTOR",
+    "subCategory": "Working interdependently to ignite and achieve our shared vision",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.65,
+    "score": 3,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "RELATIONSHIP DRIVEN",
+    "subCategory": "Always thinking “we” and not “me”",
+    "year": 2019,
+    "districtMin": 2,
+    "districtMax": 4,
+    "districtAvg": 3.1,
+    "score": 3,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "RELATIONSHIP DRIVEN",
+    "subCategory": "Being culturally responsive and celebrating our rich diversity",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.45,
+    "score": 3,
+    "measureDate": "2019-11-12T00:00:00"
+  },
+  {
+    "staffUsi": 25040,
+    "category": "RELATIONSHIP DRIVEN",
+    "subCategory": "Establishing a culture of trust, partnership, and collaboration",
+    "year": 2019,
+    "districtMin": 1,
+    "districtMax": 4,
+    "districtAvg": 2.94,
+    "score": 2,
+    "measureDate": "2019-11-12T00:00:00"
+  }
+];
+var losUIjson = [];
+
+var ii = 0;
+var jj = 0;
+var kk = 0;
+var xx = 0;
+
+/*
+            {
+            "staffUsi": 25040,
+            "category": "FOREVER LEARNER",
+            "subCategory": "Always seeking opportunities to continuously learn and grow",
+            "year": 2019,
+            "districtMin": 1,
+            "districtMax": 4,
+            "districtAvg": 2.86,
+            "score": 3,
+            "measureDate": "2019-11-12T00:00:00"
+            },
+*/
+
+var xx = 0; var ii = 0; var jj = 0; var kk = 0;
+while (xx < apiRecords.length) {
+
+if (xx > 0) {
+    if (apiRecords[xx].category != apiRecords[xx - 1].category) {
+  losUIjson.push({
+      "CategoryTitle": "",
+      "subCatCriteria": [{
+        "subCatNotes": "",
+        "subCatTitle": "",
+        "scoresByPeriod": [{
+          "period": "",
+          "staffScore": 0,
+          "districtAvg": 0,
+          "districtMax": 0
+        }]}]});      
+  ii++; jj = 0; kk = 0;
+    }
+    else if (apiRecords[xx].subCategory != apiRecords[xx - 1].subCategory) {
+      losUIjson[ii].subCatCriteria.push({
+        "subCatTitle": "",
+        "scoresByPeriod": [{
+          "period": "",
+          "staffScore": 0,
+          "districtAvg": 0,
+          "districtMax": 0
+        }]});
+      jj++;  kk = 0;
+    }
+    else if (apiRecords[xx].year != apiRecords[xx-1].year) {
+      losUIjson[ii].subCatCriteria[jj].scoresByPeriod.push({
+          "period": "",
+          "staffScore": 0,
+          "districtAvg": 0,
+          "districtMax": 0
+        });
+      kk++;
+    }
+}
+else {
+  losUIjson.push({
+      "CategoryTitle": "",
+      "subCatCriteria": [{
+        "subCatNotes": "",
+        "subCatTitle": "",
+        "scoresByPeriod": [{
+          "period": "",
+          "staffScore": 0,
+          "districtAvg": 0,
+          "districtMax": 0
+        }]}]});
+}
+
+  losUIjson[ii].CategoryTitle = apiRecords[xx].category;
+  losUIjson[ii].subCatCriteria[jj].subCatTitle = apiRecords[xx].subCategory;
+  losUIjson[ii].subCatCriteria[jj].subCatNotes = apiRecords[xx].subCategory;
+  losUIjson[ii].subCatCriteria[jj].scoresByPeriod[kk].period = apiRecords[xx].year.toString();
+  losUIjson[ii].subCatCriteria[jj].scoresByPeriod[kk].staffScore = apiRecords[xx].score;
+  losUIjson[ii].subCatCriteria[jj].scoresByPeriod[kk].districtAvg = apiRecords[xx].districtAvg;
+  losUIjson[ii].subCatCriteria[jj].scoresByPeriod[kk].districtMax = apiRecords[xx].districtMax;
+console.log("losUIjson:: ", losUIjson);  
+
+  xx++;
+}
+
   return (
     <FirebaseAuthProvider {...firebaseConfig} firebase={firebase}>
 
