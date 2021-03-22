@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Link, Route, Switch, Redirect } from "react-router-dom";
 
-import { Button } from 'react-bootstrap';
+import { Button } from "react-bootstrap";
 import "./style.css";
 
 // import { render } from "react-dom";
@@ -151,6 +151,17 @@ var apiRecords = [{
   }
 ];
 var losUIjson = [];
+var los00 = {
+      "CategoryTitle": "",
+      "subCatCriteria": [{
+        "subCatNotes": "",
+        "subCatTitle": "",
+        "scoresByPeriod": [{
+          "period": "",
+          "staffScore": 0,
+          "districtAvg": 0,
+          "districtMax": 0
+        }]}]};
 
 var ii = 0;
 var jj = 0;
@@ -265,7 +276,7 @@ console.log("losUIjson:: ", losUIjson);
         <FirebaseAuthConsumer>
           {({ isSignedIn, user, providerId }) => {
             return (
-              <pre style={{ height: 300, overflow: "auto" }}>
+              <pre style={{ height: 600, overflow: "auto" }}>
   <br />              {JSON.stringify({ losUIjson}, null, 2)}
               </pre>
         //        {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}
