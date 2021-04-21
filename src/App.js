@@ -73,38 +73,3 @@ export const App = () => {
     </FirebaseAuthProvider>
   );
 };
-
-const testfn = (apiRecords) => {
-  var rr = 0, cc = 0, ss = 0, pp = 0;
-  var ccMatch = false, ssMatch = false, ppMatch = false;
-
-  while (rr < apiRecords.length) {
-    if (losUIjson.length < 0) {
-      losUIjson.push(JSON.parse(JSON.stringify(los00))); cc = 0; ss = 0; pp = 0;
-    }
-    else {
-      ccMatch = false; cc = 0;
-      while ( (!ccMatch) && (cc < losUIjson.length) ) {
-
-        if (apiRecords[rr].category == losUIjson[cc].CategoryTitle) {
-
-        // match subCat, period
-
-        }
-        else {
-          cc++;      
-        }
-      }
-      if (!ccMatch) {
-        losUIjson.push(JSON.parse(JSON.stringify(los00))); cc = losUIjson.length-1; ss = 0; pp = 0;
-      } 
-    }
-
-    losUIjson[cc].CategoryTitle = apiRecords[rr].category;
-
-    rr++;
-  }
-
-
-
-};
