@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Link, Route, Switch, Redirect } from "react-router-dom";
 
 import { Button } from "react-bootstrap";
-import "./style.css";
+import "../style.css";
 
 // import { render } from "react-dom";
 import * as firebase from "firebase/app";
@@ -13,7 +13,7 @@ import {
   IfFirebaseAuthed,
   IfFirebaseAuthedAnd
 } from "@react-firebase/auth";
-import { firebaseConfig } from "./base";
+import { firebaseConfig } from "../base";
 
 export const App = () => {
 
